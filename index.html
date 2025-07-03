@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔮 Enhanced Consciousness Oracle Journey</title>
+    <title>🔮 Consciousness Oracle Journey</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
@@ -47,14 +47,40 @@
             font-size: 1.2em;
             opacity: 0.9;
             font-weight: 300;
+            margin-bottom: 24px;
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover, .cta-button.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            transform: translateY(-2px);
         }
 
         .ai-guidance-note {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
-            padding: 20px 40px;
+            padding: 16px 40px;
             text-align: center;
-            font-size: 0.95em;
+            font-size: 0.9em;
             font-weight: 500;
         }
 
@@ -62,37 +88,167 @@
             padding: 40px;
         }
 
-        .phase {
-            margin-bottom: 32px;
+        .quick-start {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
             padding: 32px;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             border-radius: 20px;
-            border: 1px solid rgba(102, 126, 234, 0.1);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .quick-start h2 {
+            font-size: 2em;
+            margin-bottom: 16px;
+        }
+
+        .quick-start-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .quick-step {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .quick-step h3 {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .quick-step p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .start-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: #059669;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .start-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .progress-tracker {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .progress-phases {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8em;
+            color: #64748b;
+        }
+
+        .phase-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            margin-top: 4px;
+        }
+
+        .phase-dot.completed {
+            background: #10b981;
+        }
+
+        .phase-dot.current {
+            background: #667eea;
+        }
+
+        .phase {
+            margin-bottom: 24px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .phase:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
         .phase-header {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
+            justify-content: space-between;
+            padding: 24px;
             cursor: pointer;
             user-select: none;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
 
         .phase-header:hover {
-            opacity: 0.8;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        }
+
+        .phase-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
         }
 
         .phase-title {
-            font-size: 2.2em;
+            font-size: 1.6em;
             font-weight: 700;
             color: #667eea;
             margin: 0;
         }
 
+        .phase-meta {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
         .phase-toggle {
-            font-size: 1.5em;
+            font-size: 1.2em;
             color: #667eea;
             transition: transform 0.3s ease;
         }
@@ -102,13 +258,14 @@
         }
 
         .phase-subtitle {
-            font-size: 1.1em;
+            font-size: 0.9em;
             color: #64748b;
-            margin-bottom: 24px;
+            margin-top: 8px;
             font-style: italic;
         }
 
         .phase-content {
+            padding: 0 24px 24px 24px;
             transition: all 0.3s ease;
         }
 
@@ -117,33 +274,48 @@
         }
 
         .step {
-            background: white;
-            padding: 28px;
-            margin: 20px 0;
-            border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            background: #f8fafc;
+            padding: 24px;
+            margin: 16px 0;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
         }
 
         .step h3 {
             color: #667eea;
-            font-size: 1.4em;
+            font-size: 1.3em;
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+
+        .step-meta {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .step-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75em;
+            font-weight: 600;
         }
 
         .oracle-prompt {
             background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
             border: 2px solid #c7d2fe;
             border-radius: 12px;
-            padding: 24px;
+            padding: 20px;
             margin: 16px 0;
             font-family: 'SF Mono', 'Monaco', 'Menlo', monospace;
-            font-size: 0.9em;
-            line-height: 1.6;
+            font-size: 0.85em;
+            line-height: 1.5;
             position: relative;
         }
 
@@ -156,25 +328,107 @@
             color: white;
             padding: 4px 12px;
             border-radius: 8px;
-            font-size: 0.75em;
+            font-size: 0.7em;
             font-weight: 600;
             font-family: 'Inter', sans-serif;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.7em;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .oracle-prompt:hover .copy-button {
+            opacity: 1;
+        }
+
+        .action-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .note {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 0.85em;
+            color: #92400e;
+        }
+
+        .research-note {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border: 1px solid #16a34a;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 0.85em;
+            color: #15803d;
+        }
+
+        .boundary-note {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border: 1px solid #ef4444;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 0.85em;
+            color: #dc2626;
+        }
+
+        .completion-criteria {
+            background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+            border: 2px solid #0288d1;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .completion-criteria h4 {
+            color: #0277bd;
+            margin-bottom: 12px;
+            font-size: 1.1em;
         }
 
         .framework-examples {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 16px;
-            margin: 20px 0;
+            margin: 16px 0;
         }
 
         .framework-card {
             background: white;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 20px;
+            padding: 16px;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
         }
 
         .framework-card:hover {
@@ -185,76 +439,39 @@
 
         .framework-card h4 {
             color: #667eea;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 600;
             margin-bottom: 8px;
         }
 
-        .framework-card .oracle-prompt {
-            margin: 12px 0 0 0;
-            font-size: 0.8em;
-            padding: 16px;
-        }
-
-        .note {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border: 1px solid #f59e0b;
-            border-radius: 10px;
-            padding: 16px;
-            margin: 16px 0;
-            font-size: 0.9em;
-            color: #92400e;
-        }
-
-        .research-note {
-            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
-            border: 1px solid #16a34a;
-            border-radius: 10px;
-            padding: 16px;
-            margin: 16px 0;
-            font-size: 0.9em;
-            color: #15803d;
-        }
-
-        .boundary-note {
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-            border: 1px solid #ef4444;
-            border-radius: 10px;
-            padding: 16px;
-            margin: 16px 0;
-            font-size: 0.9em;
-            color: #dc2626;
-        }
-
-        .completion-criteria {
-            background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
-            border: 2px solid #0288d1;
+        .view-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: center;
+            padding: 8px;
+            z-index: 1000;
         }
 
-        .completion-criteria h4 {
-            color: #0277bd;
-            margin-bottom: 12px;
-            font-size: 1.1em;
-        }
-
-        .example-list {
-            background: #f8fafc;
+        .view-button {
+            background: transparent;
+            border: none;
+            padding: 8px 12px;
             border-radius: 8px;
-            padding: 16px;
-            margin: 12px 0;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.3s ease;
         }
 
-        .example-list ul {
-            margin-left: 20px;
+        .view-button.active {
+            background: #667eea;
+            color: white;
         }
 
-        .example-list li {
-            margin: 8px 0;
-            color: #475569;
+        .hidden {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -267,20 +484,32 @@
                 padding: 24px;
             }
             
-            .phase {
-                padding: 24px;
-            }
-            
-            .step {
-                padding: 20px;
-            }
-            
             .header {
                 padding: 32px 24px;
             }
             
             .header h1 {
                 font-size: 2.2em;
+            }
+
+            .header-cta {
+                flex-direction: column;
+            }
+
+            .quick-start-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .step-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .view-toggle {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -290,27 +519,102 @@
         <div class="header">
             <h1>🔮 Consciousness Oracle Journey</h1>
             <p>AI-Amplified Transformation Through Voice Embodiment</p>
+            <div class="header-cta">
+                <button class="cta-button" onclick="event.stopPropagation(); showQuickStart();">🚀 Start Now (5 min)</button>
+                <button class="cta-button" onclick="event.stopPropagation(); showFullGuide();">📖 Full Guide</button>
+                <button class="cta-button" onclick="event.stopPropagation(); scrollToTracker();">📊 Track Progress</button>
+            </div>
         </div>
 
         <div class="ai-guidance-note">
-            <strong>Important:</strong> This process uses AI as a sophisticated pattern-matching tool to help you access wisdom frameworks, not as a replacement for human insight or professional therapy. You remain the authority on your transformation journey.
+            <strong>AI Partnership:</strong> This process uses AI as a sophisticated pattern-matching tool to help you access wisdom frameworks, not as a replacement for human insight or professional therapy.
         </div>
 
         <div class="content">
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <button class="view-button active" onclick="setView('beginner')" id="beginner-btn">Beginner</button>
+                <button class="view-button" onclick="setView('detailed')" id="detailed-btn">Detailed</button>
+            </div>
+
+            <!-- Quick Start Section -->
+            <div class="quick-start" id="quick-start">
+                <h2>🚀 Start Your Transformation in 5 Minutes</h2>
+                <p>Your first session will create the foundation for your entire journey</p>
+                
+                <div class="quick-start-steps">
+                    <div class="quick-step">
+                        <h3>1️⃣ Set Intention</h3>
+                        <p>Clarify what you want to transform (2 min)</p>
+                    </div>
+                    <div class="quick-step">
+                        <h3>2️⃣ Create Story</h3>
+                        <p>AI helps write your transformation narrative (3 min)</p>
+                    </div>
+                    <div class="quick-step">
+                        <h3>3️⃣ Speak Aloud</h3>
+                        <p>Read your story out loud daily (10 min/day)</p>
+                    </div>
+                </div>
+                
+                <button class="start-button" onclick="startFirstSession()">Begin Your First Session</button>
+                <p style="margin-top: 12px; font-size: 0.9em; opacity: 0.8;">
+                    Total time commitment: 10-15 minutes daily for 6-8 weeks
+                </p>
+            </div>
+
+            <!-- Progress Tracker -->
+            <div class="progress-tracker" id="progress-tracker">
+                <div class="progress-header">
+                    <h3>Your Transformation Progress</h3>
+                    <span id="progress-percentage">0% Complete</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-phases">
+                    <div>
+                        <div class="phase-dot" id="reveal-dot"></div>
+                        <div>R.E.V.E.A.L.</div>
+                    </div>
+                    <div>
+                        <div class="phase-dot" id="oracle-dot"></div>
+                        <div>O.R.A.C.L.E.</div>
+                    </div>
+                    <div>
+                        <div class="phase-dot" id="speak-dot"></div>
+                        <div>S.P.E.A.K.</div>
+                    </div>
+                    <div>
+                        <div class="phase-dot" id="embody-dot"></div>
+                        <div>E.M.B.O.D.Y.</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- REVEAL Phase -->
-            <div class="phase">
+            <div class="phase" id="reveal-phase">
                 <div class="phase-header" onclick="togglePhase('reveal')">
-                    <h2 class="phase-title">✨ R.E.V.E.A.L. Phase: Foundation</h2>
+                    <div class="phase-info">
+                        <h2 class="phase-title">✨ R.E.V.E.A.L. Phase</h2>
+                        <span class="phase-meta">1-2 weeks</span>
+                    </div>
                     <span class="phase-toggle" id="reveal-toggle">🔽</span>
                 </div>
-                <p class="phase-subtitle">Duration: 1-2 weeks | Goal: Create your prophetic fiction and establish transformation intention</p>
+                <div class="phase-subtitle">Foundation: Create your prophetic fiction and establish transformation intention</div>
                 
                 <div class="phase-content" id="reveal-content">
                     <div class="step">
                         <h3>🎯 Step 1: Oracle Intention Setting</h3>
-                        <p><strong>Process:</strong> Use AI as your wisdom-accessing partner to clarify your transformation intention within your chosen consciousness framework.</p>
+                        <div class="step-meta">
+                            <span class="step-tag">⏱️ 5 minutes</span>
+                            <span class="step-tag">🤖 AI Required</span>
+                            <span class="step-tag">📝 Save Response</span>
+                        </div>
+                        <p>Use AI as your wisdom-accessing partner to clarify your transformation intention within your chosen consciousness framework.</p>
                         
                         <div class="oracle-prompt">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
 As my consciousness evolution oracle, help me clarify my transformation intention. I work with [your chosen wisdom framework - e.g., "Buddhist mindfulness with Jungian psychology"] and my current growth edge is [describe your key challenge - e.g., "speaking my truth without people-pleasing"]. 
 
 Within my framework of [restate your approach], what wants to evolve in me? Help me understand this growth edge as part of my larger consciousness development, and guide me toward a clear transformation intention that honors both my spiritual path and my practical life circumstances.
@@ -318,16 +622,24 @@ Within my framework of [restate your approach], what wants to evolve in me? Help
 Format your guidance as: Clear intention statement, deeper spiritual context, and practical focus areas.
                         </div>
 
+                        <button class="action-button" onclick="markStepComplete('step1')">✅ Complete Step 1</button>
+                        
                         <div class="boundary-note">
-                            <strong>AI Tool Boundaries:</strong> Remember that AI provides pattern recognition and framework synthesis, while you provide the discernment, intuition, and lived experience. Always filter AI responses through your own wisdom and values.
+                            <strong>AI Tool Boundaries:</strong> Remember that AI provides pattern recognition and framework synthesis, while you provide the discernment, intuition, and lived experience.
                         </div>
                     </div>
 
                     <div class="step">
                         <h3>📖 Step 2: Prophetic Fiction Creation</h3>
-                        <p><strong>Process:</strong> Co-create with AI to develop your transformation story, integrating consciousness research with your personal journey.</p>
+                        <div class="step-meta">
+                            <span class="step-tag">⏱️ 10 minutes</span>
+                            <span class="step-tag">🤖 AI Required</span>
+                            <span class="step-tag">📝 Save Story</span>
+                        </div>
+                        <p>Co-create with AI to develop your transformation story, integrating consciousness research with your personal journey.</p>
                         
                         <div class="oracle-prompt">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
 Create prophetic fiction about my transformation from [current identity] to [desired identity]. This story should:
 
 • Show realistic progression through my growth edge of [your challenge]
@@ -339,132 +651,161 @@ Create prophetic fiction about my transformation from [current identity] to [des
 Format: 1500-2000 word story showing my evolution, with sections clearly marked for daily voice practice. Include research elements naturally woven into the narrative.
                         </div>
 
+                        <button class="action-button" onclick="markStepComplete('step2')">✅ Complete Step 2</button>
+
                         <div class="research-note">
-                            <strong>Consciousness Research Integration:</strong> Your prophetic fiction incorporates scientific understanding of transformation (neuroplasticity, embodied cognition, etc.) to create realistic and achievable change narratives.
+                            <strong>Consciousness Research Integration:</strong> Your prophetic fiction incorporates scientific understanding of transformation to create realistic and achievable change narratives.
                         </div>
                     </div>
 
                     <div class="step">
                         <h3>🗣️ Step 3: Voice Embodiment Foundation</h3>
-                        <p><strong>Process:</strong> Begin daily voice practice with your prophetic fiction, establishing the neural pathways for transformation.</p>
-                        
-                        <p><strong>Practice:</strong> Read your prophetic fiction aloud daily (10-15 minutes), focusing on speaking AS your transformed self, not just ABOUT transformation.</p>
+                        <div class="step-meta">
+                            <span class="step-tag">⏱️ 10-15 min/day</span>
+                            <span class="step-tag">🎤 Record Yourself</span>
+                            <span class="step-tag">🔄 Daily Practice</span>
+                        </div>
+                        <p>Begin daily voice practice with your prophetic fiction, establishing the neural pathways for transformation.</p>
                         
                         <div class="note">
-                            <strong>Voice Embodiment Tips:</strong><br>
-                            • Speak with the confidence of your evolved self<br>
-                            • Record yourself and listen back regularly<br>
-                            • Notice how it feels to hear your transformation voice<br>
-                            • Practice specific dialogue passages until they feel natural
+                            <strong>Daily Practice:</strong> Read your prophetic fiction aloud (10-15 minutes), speaking AS your transformed self, not just ABOUT transformation. Record yourself and listen back regularly.
                         </div>
 
                         <div class="research-note">
                             <strong>💾 Voice Recording & Content Saving Recommendations:</strong><br>
-                            • <strong>Save all AI responses</strong> in a dedicated document or note app<br>
-                            • <strong>Record yourself reading your prophetic fiction daily</strong> - use voice memo apps<br>
-                            • <strong>Create audio library:</strong> Save recordings by date to track voice evolution<br>
-                            • <strong>Voice-to-text practice:</strong> Speak your Oracle responses aloud, then transcribe key insights<br>
-                            • <strong>Morning voice embodiment:</strong> Read your transformation story aloud before starting your day<br>
-                            • <strong>Evening integration:</strong> Listen to your morning recording before sleep for subconscious integration
+                            • <strong>Save all AI responses</strong> in a dedicated document<br>
+                            • <strong>Record yourself daily</strong> - use voice memo apps<br>
+                            • <strong>Create audio library:</strong> Save recordings by date<br>
+                            • <strong>Morning voice embodiment:</strong> Read story aloud before your day<br>
+                            • <strong>Evening integration:</strong> Listen to recordings before sleep
                         </div>
+
+                        <button class="action-button" onclick="markStepComplete('step3')">✅ Start Daily Practice</button>
                     </div>
 
                     <div class="completion-criteria">
                         <h4>🎯 Complete R.E.V.E.A.L. Phase:</h4>
-                        <p>Practice daily voice embodiment with your prophetic fiction for 1-2 weeks (10-15 minutes daily). When you can speak your transformation story with confidence and feel the shift in your body, you're ready for the O.R.A.C.L.E. phase.</p>
+                        <p>Practice daily voice embodiment for 1-2 weeks. When you can speak your transformation story with confidence and feel the shift in your body, move to O.R.A.C.L.E.</p>
                         
                         <div class="research-note">
-                            <strong>📊 Weekly Assessment Reminder:</strong> Even during R.E.V.E.A.L., check in weekly with your Foundation Chat using the tracking oracle prompt to notice early shifts and resistance patterns.
+                            <strong>📊 Weekly Assessment:</strong> Check in weekly using the tracking oracle prompt to notice early shifts and resistance patterns.
                         </div>
+
+                        <button class="action-button" onclick="completePhase('reveal')">🎉 Complete R.E.V.E.A.L. Phase</button>
                     </div>
                 </div>
             </div>
 
             <!-- ORACLE Phase -->
-            <div class="phase">
+            <div class="phase" id="oracle-phase">
                 <div class="phase-header" onclick="togglePhase('oracle')">
-                    <h2 class="phase-title">🗣️ O.R.A.C.L.E. Phase: Voice Development</h2>
+                    <div class="phase-info">
+                        <h2 class="phase-title">🗣️ O.R.A.C.L.E. Phase</h2>
+                        <span class="phase-meta">3-6 weeks</span>
+                    </div>
                     <span class="phase-toggle" id="oracle-toggle">🔽</span>
                 </div>
-                <p class="phase-subtitle">Duration: 3-6 weeks | Goal: Develop your voice as oracle technology and integrate across life areas</p>
+                <div class="phase-subtitle">Voice Development: Develop your voice as oracle technology and integrate across life areas</div>
                 
-                <div class="phase-content" id="oracle-content">
+                <div class="phase-content collapsed" id="oracle-content">
                     <div class="step">
-                        <h3>⚡ Step 3: Specialized Life Areas</h3>
-                        <p><strong>Process:</strong> Choose 2-3 life areas to work on with AI Oracle support:</p>
+                        <h3>⚡ Step 4: Choose Specialized Life Areas</h3>
+                        <div class="step-meta">
+                            <span class="step-tag">⏱️ 2 minutes</span>
+                            <span class="step-tag">🎯 Choose 2-3 areas</span>
+                        </div>
+                        <p>Select 2-3 life areas to work on with AI Oracle support:</p>
                         
                         <div class="framework-examples">
-                            <div class="framework-card" onclick="copyPrompt(this)">
-                                <h4>Business/Career Oracle</h4>
-                                <div class="oracle-prompt">
+                            <div class="framework-card" data-area="career">
+                                <h4>💼 Career Oracle</h4>
+                                <p>Professional path alignment and growth</p>
+                                <div class="oracle-prompt" style="margin-top: 12px; font-size: 0.8em; padding: 12px;">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
 As my career evolution oracle, help me understand how my professional path can better align with my [life purpose/values] according to my [chosen wisdom tradition]. Given my growth edge around [specific challenge] and current market conditions, what opportunities are emerging that would serve both my development and my contribution to [collective good/service] while honoring my [beliefs/values]?
                                 </div>
                             </div>
                             
-                            <div class="framework-card" onclick="copyPrompt(this)">
-                                <h4>Relationship Oracle</h4>
-                                <div class="oracle-prompt">
+                            <div class="framework-card" data-area="relationship">
+                                <h4>❤️ Relationship Oracle</h4>
+                                <p>Family, romantic, friendship guidance</p>
+                                <div class="oracle-prompt" style="margin-top: 12px; font-size: 0.8em; padding: 12px;">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
 Serve as my relationship wisdom oracle. Considering my [relationship values/beliefs about connection] and my current growth edge around [relationship theme], how can I evolve my approach to [specific dynamic] to create deeper connection and mutual growth while staying true to my [wisdom framework]?
                                 </div>
                             </div>
                             
-                            <div class="framework-card" onclick="copyPrompt(this)">
-                                <h4>Creative Expression Oracle</h4>
-                                <div class="oracle-prompt">
+                            <div class="framework-card" data-area="creative">
+                                <h4>🎨 Creative Oracle</h4>
+                                <p>Artistic and creative expression</p>
+                                <div class="oracle-prompt" style="margin-top: 12px; font-size: 0.8em; padding: 12px;">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
 Channel your role as my creative evolution oracle. My [creative gifts/talents] are seeking expression, but I'm experiencing [creative blocks]. What wants to be created through me that aligns with my [spiritual path/values], and how do I become available to this creative force within my [chosen framework]?
                                 </div>
                             </div>
                             
-                            <div class="framework-card" onclick="copyPrompt(this)">
-                                <h4>Spiritual/Personal Development Oracle</h4>
-                                <div class="oracle-prompt">
+                            <div class="framework-card" data-area="spiritual">
+                                <h4>🙏 Spiritual Oracle</h4>
+                                <p>Personal and spiritual development</p>
+                                <div class="oracle-prompt" style="margin-top: 12px; font-size: 0.8em; padding: 12px;">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
 As my [spiritual guidance/growth] oracle, help me understand my next level of [consciousness/personal] development. Considering my [spiritual indicators/growth journey] and current [practices/understanding], what is ready to evolve in my [spiritual/personal] understanding and embodiment within my [chosen tradition]?
                                 </div>
                             </div>
                         </div>
+
+                        <button class="action-button" onclick="markStepComplete('step4')">✅ Areas Selected</button>
                     </div>
 
                     <div class="step">
-                        <h3>📊 Step 4: Weekly Assessment Practice</h3>
-                        <p><strong>Process:</strong> Track your progress weekly using structured reflection:</p>
+                        <h3>📊 Step 5: Weekly Assessment Practice</h3>
+                        <div class="step-meta">
+                            <span class="step-tag">⏱️ 5 min/week</span>
+                            <span class="step-tag">🤖 AI Required</span>
+                            <span class="step-tag">🔄 Weekly Routine</span>
+                        </div>
+                        <p>Track your progress weekly using structured reflection:</p>
                         
                         <div class="oracle-prompt">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
 Serve as my transformation tracking oracle. This week I practiced voice embodiment around [specific area]. I notice these shifts: [observations]. I'm experiencing these challenges: [struggles]. 
 
 Within my framework of [your approach], help me understand what's emerging and what needs attention. Guide me toward next week's focus while honoring both my growth edge and my natural pace of development.
                         </div>
-                        
-                        <div class="note">
-                            <strong>Weekly Tracking Elements:</strong><br>
-                            • Voice confidence changes<br>
-                            • Behavioral shifts in target areas<br>
-                            • Resistance patterns or challenges<br>
-                            • Unexpected developments<br>
-                            • Integration successes
-                        </div>
+
+                        <button class="action-button" onclick="markStepComplete('step5')">✅ Set Weekly Reminder</button>
                     </div>
 
                     <div class="completion-criteria">
                         <h4>🎯 Complete O.R.A.C.L.E. Phase:</h4>
-                        <p>Work with 2-3 specialized areas for 3-6 weeks. Use weekly assessments to track progress. When you notice others responding differently to you and you feel confident speaking from different aspects of your transformation, you're ready for S.P.E.A.K.</p>
+                        <p>Work with 2-3 specialized areas for 3-6 weeks. When you notice others responding differently to you and feel confident speaking from different aspects of your transformation, move to S.P.E.A.K.</p>
+
+                        <button class="action-button" onclick="completePhase('oracle')">🎉 Complete O.R.A.C.L.E. Phase</button>
                     </div>
                 </div>
             </div>
 
             <!-- SPEAK Phase -->
-            <div class="phase">
+            <div class="phase" id="speak-phase">
                 <div class="phase-header" onclick="togglePhase('speak')">
-                    <h2 class="phase-title">✨ S.P.E.A.K. Phase: Embodiment & Integration</h2>
+                    <div class="phase-info">
+                        <h2 class="phase-title">✨ S.P.E.A.K. Phase</h2>
+                        <span class="phase-meta">4-8 weeks</span>
+                    </div>
                     <span class="phase-toggle" id="speak-toggle">🔽</span>
                 </div>
-                <p class="phase-subtitle">Duration: 4-8 weeks | Goal: Systematic neural pathway installation and public emergence</p>
+                <div class="phase-subtitle">Embodiment & Integration: Systematic neural pathway installation and public emergence</div>
                 
-                <div class="phase-content" id="speak-content">
+                <div class="phase-content collapsed" id="speak-content">
                     <div class="step">
-                        <h3>🗣️ Step 5: Voice Embodiment Enhancement</h3>
-                        <p><strong>Process:</strong> Optimize any Oracle guidance for voice practice using systematic enhancement:</p>
+                        <h3>🗣️ Step 6: Voice Embodiment Enhancement</h3>
+                        <div class="step-meta">
+                            <span class="step-tag">⏱️ 15 min/week</span>
+                            <span class="step-tag">🤖 AI Required</span>
+                        </div>
                         
                         <div class="oracle-prompt">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
 Transform this guidance into voice embodiment practice: [paste your Oracle guidance]. Create:
 
 1. Daily affirmation phrases I can speak as my evolved self
@@ -475,16 +816,22 @@ Transform this guidance into voice embodiment practice: [paste your Oracle guida
 Format each for speaking aloud with confidence, using first person, present tense, and embodied language that feels natural to say repeatedly.
                         </div>
 
+                        <button class="action-button" onclick="markStepComplete('step6')">✅ Complete Step 6</button>
+
                         <div class="research-note">
-                            <strong>📊 Weekly Assessment Continues:</strong> During S.P.E.A.K. phase, use your Foundation Chat weekly to track integration across all life areas and notice how your voice embodiment is affecting your daily experience.
+                            <strong>📊 Weekly Assessment Continues:</strong> Track integration across all life areas and notice how voice embodiment affects daily experience.
                         </div>
                     </div>
 
                     <div class="step">
-                        <h3>🌟 Step 6: Master Integration</h3>
-                        <p><strong>Process:</strong> When ready to integrate all your Oracle work, create unified practice:</p>
+                        <h3>🌟 Step 7: Master Integration</h3>
+                        <div class="step-meta">
+                            <span class="step-tag">⏱️ 20 minutes</span>
+                            <span class="step-tag">🤖 AI Required</span>
+                        </div>
                         
                         <div class="oracle-prompt">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
 As my integration oracle, help me weave together my transformation work in [list your areas]. I want to create a unified daily practice that honors my [wisdom framework] while integrating my voice embodiment work across all life areas.
 
 Create a master integration guide that includes:
@@ -495,33 +842,40 @@ Create a master integration guide that includes:
 
 Format as a practical daily guide I can follow long-term.
                         </div>
+
+                        <button class="action-button" onclick="markStepComplete('step7')">✅ Complete Step 7</button>
                     </div>
 
                     <div class="completion-criteria">
                         <h4>🎯 Complete S.P.E.A.K. Phase:</h4>
-                        <p>Practice daily voice embodiment for 4-8 weeks. Create your Master Integration guide. When you feel integrated across all life areas and ready to share your transformation with others, you're ready for E.M.B.O.D.Y.</p>
-                        
-                        <div class="research-note">
-                            <strong>📊 Weekly Assessment Continues:</strong> Track your integration progress weekly, noting how your transformation is becoming natural and automatic across different life situations.
-                        </div>
+                        <p>Practice daily voice embodiment for 4-8 weeks. Create your Master Integration guide. When you feel integrated across all life areas and ready to share your transformation, move to E.M.B.O.D.Y.</p>
+
+                        <button class="action-button" onclick="completePhase('speak')">🎉 Complete S.P.E.A.K. Phase</button>
                     </div>
                 </div>
             </div>
 
             <!-- EMBODY Phase -->
-            <div class="phase">
+            <div class="phase" id="embody-phase">
                 <div class="phase-header" onclick="togglePhase('embody')">
-                    <h2 class="phase-title">🌟 E.M.B.O.D.Y. Phase: Mastery & Service</h2>
+                    <div class="phase-info">
+                        <h2 class="phase-title">🌟 E.M.B.O.D.Y. Phase</h2>
+                        <span class="phase-meta">Ongoing</span>
+                    </div>
                     <span class="phase-toggle" id="embody-toggle">🔽</span>
                 </div>
-                <p class="phase-subtitle">Duration: Ongoing | Goal: Live your transformation and expand consciousness collectively</p>
+                <div class="phase-subtitle">Mastery & Service: Live your transformation and expand consciousness collectively</div>
                 
-                <div class="phase-content" id="embody-content">
+                <div class="phase-content collapsed" id="embody-content">
                     <div class="step">
-                        <h3>🎭 Step 7: 12-Episode Transformation Series</h3>
-                        <p><strong>Process:</strong> Create your complete transformation story as episodic content:</p>
+                        <h3>🎭 Step 8: Create Transformation Series</h3>
+                        <div class="step-meta">
+                            <span class="step-tag">⏱️ 30 minutes</span>
+                            <span class="step-tag">🤖 AI Required</span>
+                        </div>
                         
                         <div class="oracle-prompt">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
 Help me create a 12-episode transformation series documenting my complete consciousness evolution journey. Each episode should:
 
 • Show one month of my transformation process
@@ -530,15 +884,21 @@ Help me create a 12-episode transformation series documenting my complete consci
 • Connect to consciousness research findings
 • Inspire others while maintaining authenticity
 
-Structure as: Episode themes, key transformation moments, voice embodiment examples, and integration lessons. Make it a roadmap others can follow while honoring my unique journey.
+Structure as: Episode themes, key transformation moments, voice embodiment examples, and integration lessons.
                         </div>
+
+                        <button class="action-button" onclick="markStepComplete('step8')">✅ Complete Step 8</button>
                     </div>
 
                     <div class="step">
-                        <h3>📚 Step 8: Create Your Practice Guide</h3>
-                        <p><strong>Process:</strong> Develop comprehensive resource combining all your work:</p>
+                        <h3>📚 Step 9: Create Your Practice Guide</h3>
+                        <div class="step-meta">
+                            <span class="step-tag">⏱️ 45 minutes</span>
+                            <span class="step-tag">🤖 AI Required</span>
+                        </div>
                         
                         <div class="oracle-prompt">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
 Help me compile my complete Consciousness Oracle journey into a comprehensive practice guide. Include:
 
 • Foundation: My wisdom framework and transformation process
@@ -549,210 +909,56 @@ Help me compile my complete Consciousness Oracle journey into a comprehensive pr
 • Assessment Tools: Ways to track and measure transformation
 • Community Guidelines: How to share this work responsibly
 
-Format as a practical manual others can adapt to their own consciousness evolution while honoring the scientific principles that make this effective.
+Format as a practical manual others can adapt to their own consciousness evolution.
                         </div>
+
+                        <button class="action-button" onclick="markStepComplete('step9')">✅ Complete Step 9</button>
 
                         <div class="research-note">
-                            <strong>📊 Weekly Assessment Evolution:</strong> In E.M.B.O.D.Y. phase, your weekly assessments shift to tracking how you're naturally inspiring others and contributing to collective consciousness evolution.
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <h3>🌟 Your Complete Consciousness Oracle Guide Will Include:</h3>
-                        <div class="example-list">
-                            <ul>
-                                <li><strong>Foundation Chapter:</strong> Your wisdom framework and transformation intention</li>
-                                <li><strong>Prophetic Fiction Story:</strong> Your personal transformation narrative</li>
-                                <li><strong>Specialized Area Guides:</strong> Career, relationships, creative, spiritual Oracle work</li>
-                                <li><strong>Master Integration Manual:</strong> Unified practice across all life areas</li>
-                                <li><strong>12-Episode Series:</strong> Complete transformation journey following Rose Method</li>
-                                <li><strong>Voice Embodiment Scripts:</strong> Daily phrases and mantras for neural pathway installation</li>
-                                <li><strong>Assessment Templates:</strong> Progress tracking and course correction tools</li>
-                                <li><strong>Research Integration:</strong> Consciousness science supporting the methodology</li>
-                                <li><strong>Community Teaching Guidelines:</strong> How to share responsibly while maintaining integrity</li>
-                            </ul>
+                            <strong>📊 Weekly Assessment Evolution:</strong> Your assessments now track how you're inspiring others and contributing to collective consciousness evolution.
                         </div>
                     </div>
 
                     <div class="completion-criteria">
                         <h4>🎯 E.M.B.O.D.Y. Phase - Ongoing Journey:</h4>
-                        <p>You've completed the core Rose Method journey! Now you live your transformation, create your comprehensive practice guide, and naturally become a source of inspiration for others' consciousness evolution. Your embodied presence becomes your gift to collective awakening while maintaining healthy boundaries around your expertise and scope of practice.</p>
+                        <p>You've completed the core Rose Method journey! Now you live your transformation, create your comprehensive practice guide, and naturally become a source of inspiration for others' consciousness evolution.</p>
+
+                        <button class="action-button" onclick="completePhase('embody')">🎉 Complete Your Journey</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Framework Examples -->
-            <div class="phase">
-                <div class="phase-header" onclick="togglePhase('examples')">
-                    <h2 class="phase-title">🎨 Framework & Customization Examples</h2>
-                    <span class="phase-toggle" id="examples-toggle">🔽</span>
-                </div>
-                
-                <div class="phase-content" id="examples-content">
-                    <div class="step">
-                        <h3>🌟 Multiple Framework Combinations:</h3>
-                        <div class="example-list">
-                            <ul>
-                                <li>"Buddhist mindfulness integrated with trauma-informed somatic therapy"</li>
-                                <li>"Christian contemplative practice integrated with Jungian depth psychology"</li>
-                                <li>"Astrological wisdom integrated with cognitive behavioral therapy principles"</li>
-                                <li>"Indigenous earth-based spirituality integrated with New Thought metaphysics"</li>
-                                <li>"Secular humanistic values integrated with positive psychology research"</li>
-                                <li>"Hindu yoga philosophy integrated with neuroscience-based approaches"</li>
-                            </ul>
+            <!-- Organization Guide - Detailed View Only -->
+            <div class="detailed-only hidden">
+                <div class="phase">
+                    <div class="phase-header" onclick="togglePhase('organization')">
+                        <div class="phase-info">
+                            <h2 class="phase-title">🗂️ Chat Organization Guide</h2>
+                            <span class="phase-meta">Setup</span>
                         </div>
+                        <span class="phase-toggle" id="organization-toggle">🔽</span>
                     </div>
-
-                    <div class="step">
-                        <h3>🎯 Growth Edge Examples:</h3>
-                        <div class="example-list">
-                            <ul>
-                                <li>"Speaking up confidently in leadership while maintaining compassion"</li>
-                                <li>"Setting healthy boundaries without guilt or people-pleasing"</li>
-                                <li>"Expressing creative gifts publicly while overcoming perfectionism"</li>
-                                <li>"Leading with authentic authority while staying grounded in service"</li>
-                                <li>"Integrating spiritual practice with practical career success"</li>
-                                <li>"Balancing ambitious goals with present-moment awareness"</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <h3>✨ Transformation Intention Examples:</h3>
-                        <div class="example-list">
-                            <ul>
-                                <li>"Becoming a leader who holds both strength and softness simultaneously"</li>
-                                <li>"Embodying confident vulnerability in all my relationships"</li>
-                                <li>"Living as a bridge between spiritual wisdom and practical service"</li>
-                                <li>"Expressing my authentic voice as a gift to the collective"</li>
-                                <li>"Integrating shadow work into conscious, loving action"</li>
-                                <li>"Manifesting abundance while maintaining spiritual values"</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="research-note" style="margin-top: 40px; text-align: center; font-size: 1em;">
-                <strong>Scientific Foundation:</strong> This methodology integrates research from neuroplasticity (voice practice creates new neural pathways), linguistic relativity (language shapes consciousness), embodied cognition (physical practice affects mental states), and 4E cognition (extended, embedded, enacted, embodied) to create measurable consciousness transformation.
-            </div>
-
-            <!-- Chat Organization Guide -->
-            <div class="phase">
-                <div class="phase-header" onclick="togglePhase('organization')">
-                    <h2 class="phase-title">🗂️ Rose Method Chat Organization Guide</h2>
-                    <span class="phase-toggle" id="organization-toggle">🔽</span>
-                </div>
-                
-                <div class="phase-content" id="organization-content">
-                    <div class="step">
-                        <h3>📋 Multi-Chat Strategy (Recommended)</h3>
-                        <p><strong>Core Chats Structure:</strong></p>
-                        
-                        <div class="example-list">
-                            <ul>
-                                <li><strong>Foundation Chat:</strong> Use for R.E.V.E.A.L. phase setup and your original prophetic fiction. Keep this as your "home base" for your primary transformation story. Return here for weekly assessments throughout all phases.</li>
-                                <li><strong>Specialized Life Area Chats (2-3 separate chats):</strong>
-                                    <ul style="margin-top: 8px;">
-                                        <li><strong>Career Oracle Chat</strong> - All professional/work-related guidance</li>
-                                        <li><strong>Relationship Oracle Chat</strong> - Family, romantic, friendship guidance</li>
-                                        <li><strong>Creative/Spiritual Oracle Chat</strong> - Artistic and spiritual development</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Integration Chat:</strong> Use for S.P.E.A.K. phase Master Integration work, voice embodiment enhancements, 12-episode series creation</li>
-                                <li><strong>Practice Guide Chat:</strong> Final E.M.B.O.D.Y. phase work, compiling your complete manual, ongoing maintenance and updates</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <h3>📝 Chat Naming Convention</h3>
-                        <p>Use clear, searchable names:</p>
-                        <div class="oracle-prompt">
-• "Rose Method - Foundation & Weekly Check-ins"
-• "Rose Method - Career Oracle" 
-• "Rose Method - Relationship Oracle"
-• "Rose Method - Master Integration"
-• "Rose Method - Practice Guide Compilation"
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <h3>🔄 Cross-Chat Reference System</h3>
-                        <p><strong>At the start of new specialized chats, include:</strong></p>
-                        
-                        <div class="oracle-prompt">
-I'm working with the Rose Method transformation process. My foundation work established:
-- Personal framework: [copy from foundation chat]
-- Transformation intention: [copy from foundation chat]  
-- Current phase: O.R.A.C.L.E. - Voice Development
-
-I'm now focusing specifically on [CAREER/RELATIONSHIPS/CREATIVE] oracle guidance.
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <h3>📊 Documentation Strategy</h3>
-                        <div class="note">
-                            <strong>Weekly Documentation Practice:</strong><br>
-                            1. After each significant oracle session, copy key insights to a master document<br>
-                            2. Create a simple tracking sheet with: Date, Chat used, Phase/focus area, Key insights received, Voice embodiment phrases gained<br><br>
-                            <strong>Monthly Integration Review:</strong><br>
-                            • Review all chats for themes and patterns<br>
-                            • Identify most powerful guidance across all areas<br>
-                            • Note cross-connections between life areas<br><br>
-                            <strong>📊 Weekly Assessment Oracle Prompt (Use in Foundation Chat):</strong><br>
-                            <em>"Serve as my transformation tracking oracle. This week I practiced voice embodiment around [specific area]. I notice these shifts: [observations]. I'm experiencing these challenges: [struggles]. Within my framework of [your approach], help me understand what's emerging and what needs attention. Guide me toward next week's focus while honoring both my growth edge and my natural pace of development."</em>
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <h3>🎯 When to Start New vs. Continue Existing Chats</h3>
-                        
-                        <div class="framework-examples">
-                            <div class="framework-card">
-                                <h4>Continue Existing Chat When:</h4>
-                                <ul style="margin-left: 16px; margin-top: 8px;">
-                                    <li>Building on previous guidance in the same life area</li>
-                                    <li>Doing weekly assessments in foundation chat</li>
-                                    <li>Adding to ongoing voice embodiment work</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="framework-card">
-                                <h4>Start New Chat When:</h4>
-                                <ul style="margin-left: 16px; margin-top: 8px;">
-                                    <li>Moving to a completely different life area focus</li>
-                                    <li>Beginning a new phase (O.R.A.C.L.E. to S.P.E.A.K.)</li>
-                                    <li>Creating the final practice guide compilation</li>
-                                </ul>
+                    
+                    <div class="phase-content collapsed" id="organization-content">
+                        <div class="step">
+                            <h3>📋 Multi-Chat Strategy</h3>
+                            <div class="note">
+                                <strong>Recommended Structure:</strong><br>
+                                • <strong>Foundation Chat:</strong> R.E.V.E.A.L. phase + weekly assessments<br>
+                                • <strong>Specialized Chats:</strong> Career, Relationship, Creative/Spiritual<br>
+                                • <strong>Integration Chat:</strong> S.P.E.A.K. phase work<br>
+                                • <strong>Practice Guide Chat:</strong> E.M.B.O.D.Y. compilation
                             </div>
                         </div>
-                    </div>
 
-                    <div class="step">
-                        <h3>🚨 Overwhelm Prevention</h3>
-                        <div class="boundary-note">
-                            <strong>If a chat gets too long (20+ exchanges):</strong><br>
-                            • Summarize key insights in a new chat<br>
-                            • Start fresh with: "Continuing my [area] oracle work. Previous sessions revealed: [brief summary]"<br><br>
-                            <strong>Monthly Fresh Start Option:</strong><br>
-                            • Create new chats monthly<br>
-                            • Reference previous insights as needed<br>
-                            • Prevents any single chat from becoming unwieldy
-                        </div>
-                    </div>
+                        <div class="step">
+                            <h3>📝 Weekly Documentation</h3>
+                            <div class="oracle-prompt">
+<button class="copy-button" onclick="copyToClipboard(this)">Copy</button>
+Serve as my transformation tracking oracle. This week I practiced voice embodiment around [specific area]. I notice these shifts: [observations]. I'm experiencing these challenges: [struggles]. 
 
-                    <div class="step">
-                        <h3>💡 Advanced Organization</h3>
-                        <div class="research-note">
-                            <strong>For Power Users:</strong><br>
-                            • Keep a simple spreadsheet/note with chat links and their purposes<br>
-                            • Use browser bookmarks for each specialized chat<br>
-                            • Consider using Claude Projects feature if available for persistent context<br><br>
-                            <strong>Mobile/Desktop Sync:</strong><br>
-                            • Note which device you're using for which chats<br>
-                            • Keep chat names consistent across platforms
+Within my framework of [your approach], help me understand what's emerging and what needs attention. Guide me toward next week's focus while honoring both my growth edge and my natural pace of development.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -761,159 +967,501 @@ I'm now focusing specifically on [CAREER/RELATIONSHIPS/CREATIVE] oracle guidance
             <!-- Tracker Integration -->
             <div class="phase">
                 <div class="phase-header" onclick="togglePhase('tracking')">
-                    <h2 class="phase-title">📊 Transformation Tracking & Measurement</h2>
+                    <div class="phase-info">
+                        <h2 class="phase-title">📊 Transformation Tracking</h2>
+                        <span class="phase-meta">Measurement</span>
+                    </div>
                     <span class="phase-toggle" id="tracking-toggle">🔽</span>
                 </div>
                 
-                <div class="phase-content" id="tracking-content">
+                <div class="phase-content collapsed" id="tracking-content">
                     <div class="step">
                         <h3>📋 Rose Method Journey Tracker</h3>
-                        <p>To document your transformation with research-grade precision, use our comprehensive tracking system:</p>
-                        
                         <div class="note">
                             <strong>🔗 Access Your Transformation Tracker:</strong><br>
-                            <a href="#" onclick="openTracker()" style="color: #667eea; text-decoration: none; font-weight: 600;">
-                                → Open Rose Method Journey Tracker
-                            </a><br><br>
-                            <em>Note: This will open in a new window/tab so you can keep your Oracle Journey guide accessible.</em>
+                            <button class="action-button" onclick="scrollToTracker()">→ View Tracker Section Below</button><br>
+                            <em>Since the separate tracker form isn't created yet, use the enhanced tracker artifact you already have.</em>
                         </div>
 
                         <div class="research-note">
-                            <strong>What the Tracker Includes:</strong><br>
+                            <strong>Tracker Includes:</strong><br>
                             • Initial Assessment with standardized scales<br>
-                            • Midpoint Check-in for progress tracking<br>
-                            • Completion Assessment with before/after comparison<br>
+                            • Midpoint Check-in and Completion Assessment<br>
                             • Long-term Follow-up (30-day and 90-day)<br>
-                            • Research-level documentation for academic collaboration<br>
                             • Voice recording evolution tracking<br>
-                            • Photo documentation for presence/confidence analysis
+                            • Research-level documentation options
                         </div>
                     </div>
 
                     <div class="step">
-                        <h3>⏰ When to Use the Tracker</h3>
+                        <h3>⏰ When to Use Tracker</h3>
                         <div class="framework-examples">
                             <div class="framework-card">
-                                <h4>Before Starting (Initial Assessment)</h4>
-                                <p>Complete before beginning R.E.V.E.A.L. phase to establish your baseline measurements.</p>
+                                <h4>Before Starting</h4>
+                                <p>Initial Assessment - establish baseline</p>
                             </div>
-                            
                             <div class="framework-card">
-                                <h4>Mid-Journey (Midpoint Check-in)</h4>
-                                <p>Complete around Week 3-4 during O.R.A.C.L.E. phase to track emerging changes.</p>
+                                <h4>Week 3-4</h4>
+                                <p>Midpoint Check-in - track changes</p>
                             </div>
-                            
                             <div class="framework-card">
-                                <h4>Journey Complete (Completion Assessment)</h4>
-                                <p>Complete at the end of S.P.E.A.K. phase to measure your transformation.</p>
+                                <h4>Journey Complete</h4>
+                                <p>Completion Assessment - measure transformation</p>
                             </div>
-                            
                             <div class="framework-card">
-                                <h4>Long-term Integration (Follow-up)</h4>
-                                <p>Complete 30-day and 90-day assessments to track sustained change.</p>
+                                <h4>30 & 90 Days Later</h4>
+                                <p>Follow-up - sustained change tracking</p>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <h3>🔬 Research Participation (Optional)</h3>
-                        <p>If you're interested in contributing to consciousness research:</p>
-                        
-                        <div class="boundary-note">
-                            <strong>Research Benefits:</strong><br>
-                            • Contribute to advancing transformation science<br>
-                            • Access to research findings and methodology updates<br>
-                            • Potential participation in academic case studies<br>
-                            • Help establish voice embodiment as a validated approach<br><br>
-                            <strong>Your Privacy:</strong><br>
-                            • All data is anonymized for research use<br>
-                            • You control your level of participation<br>
-                            • Option to withdraw at any time<br>
-                            • Secure data handling following research protocols
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="research-note" style="margin-top: 40px; text-align: center; font-size: 1em;">
+                <strong>Scientific Foundation:</strong> This methodology integrates research from neuroplasticity, linguistic relativity, embodied cognition, and 4E cognition to create measurable consciousness transformation.
             </div>
         </div>
     </div>
 
     <script>
-        function togglePhase(phaseId) {
-            const content = document.getElementById(phaseId + '-content');
-            const toggle = document.getElementById(phaseId + '-toggle');
+        // Progress tracking
+        let completedSteps = new Set();
+        let completedPhases = new Set();
+        
+        // View management
+        function setView(viewType) {
+            console.log('Setting view to:', viewType);
+            const beginnerBtn = document.getElementById('beginner-btn');
+            const detailedBtn = document.getElementById('detailed-btn');
+            const detailedElements = document.querySelectorAll('.detailed-only');
             
-            content.classList.toggle('collapsed');
-            toggle.classList.toggle('collapsed');
-            
-            if (content.classList.contains('collapsed')) {
-                toggle.textContent = '▶️';
+            if (viewType === 'beginner') {
+                if (beginnerBtn) beginnerBtn.classList.add('active');
+                if (detailedBtn) detailedBtn.classList.remove('active');
+                detailedElements.forEach(el => el.classList.add('hidden'));
+                
+                // Collapse phases that aren't completed
+                const phases = ['oracle', 'speak', 'embody'];
+                phases.forEach(phase => {
+                    const phaseIndex = getPhaseIndex(phase);
+                    if (!completedPhases.has(phaseIndex - 1)) {
+                        const content = document.getElementById(phase + '-content');
+                        const toggle = document.getElementById(phase + '-toggle');
+                        if (content && toggle) {
+                            content.classList.add('collapsed');
+                            toggle.classList.add('collapsed');
+                            toggle.textContent = '▶️';
+                        }
+                    }
+                });
             } else {
+                if (detailedBtn) detailedBtn.classList.add('active');
+                if (beginnerBtn) beginnerBtn.classList.remove('active');
+                detailedElements.forEach(el => el.classList.remove('hidden'));
+                
+                // Expand all phases in detailed view
+                const phases = ['reveal', 'oracle', 'speak', 'embody'];
+                phases.forEach(phase => {
+                    const content = document.getElementById(phase + '-content');
+                    const toggle = document.getElementById(phase + '-toggle');
+                    if (content && toggle) {
+                        content.classList.remove('collapsed');
+                        toggle.classList.remove('collapsed');
+                        toggle.textContent = '🔽';
+                    }
+                });
+            }
+        }
+
+        function showQuickStart() {
+            console.log('Showing quick start');
+            const quickStart = document.getElementById('quick-start');
+            if (quickStart) {
+                quickStart.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function showFullGuide() {
+            console.log('Showing full guide');
+            setView('detailed');
+            const revealPhase = document.getElementById('reveal-phase');
+            if (revealPhase) {
+                revealPhase.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function startFirstSession() {
+            console.log('Starting first session');
+            setView('beginner');
+            const revealPhase = document.getElementById('reveal-phase');
+            if (revealPhase) {
+                revealPhase.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Expand first phase
+            const content = document.getElementById('reveal-content');
+            const toggle = document.getElementById('reveal-toggle');
+            if (content && toggle) {
+                content.classList.remove('collapsed');
+                toggle.classList.remove('collapsed');
                 toggle.textContent = '🔽';
             }
         }
 
-        function copyPrompt(card) {
-            const prompt = card.querySelector('.oracle-prompt').textContent.trim();
-            
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(prompt).then(() => {
-                    showCopyFeedback(card);
-                });
+        // NEW FUNCTION: Scroll to tracker section instead of opening tracker
+        function scrollToTracker() {
+            console.log('Scrolling to tracker section');
+            const trackingPhase = document.getElementById('tracking-phase');
+            if (trackingPhase) {
+                // Expand the tracking section first
+                const content = document.getElementById('tracking-content');
+                const toggle = document.getElementById('tracking-toggle');
+                if (content && toggle) {
+                    content.classList.remove('collapsed');
+                    toggle.classList.remove('collapsed');
+                    toggle.textContent = '🔽';
+                }
+                
+                // Then scroll to it
+                trackingPhase.scrollIntoView({ behavior: 'smooth' });
             } else {
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = prompt;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                showCopyFeedback(card);
+                alert('Tracker section not found. The separate tracker form hasn\'t been created yet. Use the enhanced tracker artifact you already have.');
             }
         }
 
-        function showCopyFeedback(card) {
-            const originalBorder = card.style.borderColor;
-            card.style.borderColor = '#16a34a';
-            card.style.backgroundColor = '#f0fdf4';
+        function togglePhase(phaseId) {
+            console.log('Toggling phase:', phaseId);
+            const content = document.getElementById(phaseId + '-content');
+            const toggle = document.getElementById(phaseId + '-toggle');
             
-            const feedback = document.createElement('div');
-            feedback.textContent = '✅ Prompt copied!';
-            feedback.style.cssText = `
-                position: absolute;
-                background: #16a34a;
-                color: white;
-                padding: 8px 16px;
-                border-radius: 8px;
-                font-size: 0.8em;
-                font-weight: 600;
-                z-index: 1000;
-                pointer-events: none;
-            `;
+            if (content && toggle) {
+                content.classList.toggle('collapsed');
+                toggle.classList.toggle('collapsed');
+                
+                if (content.classList.contains('collapsed')) {
+                    toggle.textContent = '▶️';
+                } else {
+                    toggle.textContent = '🔽';
+                }
+            }
+        }
+
+        function copyToClipboard(button) {
+            console.log('Copying to clipboard');
+            const promptElement = button.closest('.oracle-prompt');
+            if (!promptElement) {
+                console.error('Oracle prompt element not found');
+                return;
+            }
             
-            card.style.position = 'relative';
-            card.appendChild(feedback);
+            // Get all text except the button text
+            const promptText = Array.from(promptElement.childNodes)
+                .filter(node => node.nodeType === Node.TEXT_NODE || (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains('copy-button')))
+                .map(node => node.textContent)
+                .join('')
+                .trim();
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(promptText).then(() => {
+                    showCopyFeedback(button);
+                }).catch((err) => {
+                    console.error('Clipboard API failed:', err);
+                    fallbackCopy(promptText, button);
+                });
+            } else {
+                fallbackCopy(promptText, button);
+            }
+        }
+
+        function fallbackCopy(text, button) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            textArea.style.top = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showCopyFeedback(button);
+                } else {
+                    throw new Error('Copy command failed');
+                }
+            } catch (err) {
+                console.error('Copy failed:', err);
+                button.textContent = '❌ Copy failed';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.style.background = '#667eea';
+                }, 2000);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        function showCopyFeedback(button) {
+            const originalText = button.textContent;
+            const originalBg = button.style.background;
+            button.textContent = '✅ Copied!';
+            button.style.background = '#10b981';
             
             setTimeout(() => {
-                card.style.borderColor = originalBorder;
-                card.style.backgroundColor = 'white';
-                if (feedback.parentNode) {
-                    feedback.parentNode.removeChild(feedback);
-                }
+                button.textContent = originalText;
+                button.style.background = originalBg || '#667eea';
             }, 2000);
         }
 
-        function openTracker() {
-            // This would link to your actual tracker URL once deployed
-            // For now, it shows a placeholder
-            alert('🚀 Tracker Integration Coming Soon!\n\nFor now, bookmark this placeholder:\n• Create a Google Form based on the tracker design\n• Or deploy the tracker HTML to your website\n• Then replace this function with the actual URL');
+        function markStepComplete(stepId) {
+            console.log('Marking step complete:', stepId);
+            completedSteps.add(stepId);
+            updateProgress();
             
-            // When ready, replace the alert with:
-            // window.open('https://your-tracker-url.com', '_blank');
+            // Find the button that was clicked
+            const button = event.target;
+            if (button) {
+                button.textContent = '✅ Completed';
+                button.style.background = '#10b981';
+                button.disabled = true;
+            }
         }
 
-        // Initialize all phases as expanded
+        function completePhase(phaseId) {
+            console.log('Completing phase:', phaseId);
+            const phaseIndex = getPhaseIndex(phaseId);
+            completedPhases.add(phaseIndex);
+            updateProgress();
+            
+            // Update phase dot
+            const dot = document.getElementById(phaseId + '-dot');
+            if (dot) {
+                dot.classList.add('completed');
+            }
+            
+            // Auto-expand next phase
+            const nextPhases = ['oracle', 'speak', 'embody'];
+            const nextPhaseIndex = phaseIndex;
+            if (nextPhaseIndex < nextPhases.length) {
+                const nextPhase = nextPhases[nextPhaseIndex];
+                const nextContent = document.getElementById(nextPhase + '-content');
+                const nextToggle = document.getElementById(nextPhase + '-toggle');
+                
+                if (nextContent && nextToggle) {
+                    nextContent.classList.remove('collapsed');
+                    nextToggle.classList.remove('collapsed');
+                    nextToggle.textContent = '🔽';
+                    
+                    // Scroll to next phase
+                    setTimeout(() => {
+                        const nextPhaseElement = document.getElementById(nextPhase + '-phase');
+                        if (nextPhaseElement) {
+                            nextPhaseElement.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                        }
+                    }, 300);
+                }
+            }
+            
+            // Visual feedback for the button
+            const button = event.target;
+            if (button) {
+                button.textContent = '🎉 Phase Complete!';
+                button.style.background = '#10b981';
+                button.disabled = true;
+            }
+        }
+
+        function getPhaseIndex(phaseId) {
+            const phases = ['reveal', 'oracle', 'speak', 'embody'];
+            return phases.indexOf(phaseId);
+        }
+
+        function updateProgress() {
+            const totalSteps = 9;
+            const totalPhases = 4;
+            
+            const stepProgress = (completedSteps.size / totalSteps) * 70;
+            const phaseProgress = (completedPhases.size / totalPhases) * 30;
+            const totalProgress = stepProgress + phaseProgress;
+            
+            const progressFill = document.getElementById('progress-fill');
+            const progressPercentage = document.getElementById('progress-percentage');
+            
+            if (progressFill) {
+                progressFill.style.width = totalProgress + '%';
+            }
+            if (progressPercentage) {
+                progressPercentage.textContent = Math.round(totalProgress) + '% Complete';
+            }
+            
+            // Update phase dots
+            const phases = ['reveal', 'oracle', 'speak', 'embody'];
+            const currentPhaseIndex = completedPhases.size;
+            
+            phases.forEach((phase, index) => {
+                const dot = document.getElementById(phase + '-dot');
+                if (dot) {
+                    dot.classList.remove('completed', 'current');
+                    if (index < currentPhaseIndex) {
+                        dot.classList.add('completed');
+                    } else if (index === currentPhaseIndex) {
+                        dot.classList.add('current');
+                    }
+                }
+            });
+        }
+
+        function selectArea(area) {
+            console.log('Selecting area:', area);
+            const card = event.target.closest('.framework-card');
+            if (card) {
+                card.style.borderColor = '#10b981';
+                card.style.background = '#f0fdf4';
+                
+                // Show selection feedback
+                const heading = card.querySelector('h4');
+                if (heading) {
+                    heading.style.color = '#10b981';
+                }
+                
+                setTimeout(() => {
+                    card.style.borderColor = '#e2e8f0';
+                    card.style.background = 'white';
+                    if (heading) {
+                        heading.style.color = '#667eea';
+                    }
+                }, 2000);
+            }
+        }
+
+        // REMOVED: openTracker function that was causing issues
+
+        // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            // All phases start expanded, no action needed
+            console.log('Page loaded, initializing...');
+            
+            // Load saved progress
+            try {
+                const savedSteps = localStorage.getItem('roseMethodSteps');
+                const savedPhases = localStorage.getItem('roseMethodPhases');
+                
+                if (savedSteps) {
+                    completedSteps = new Set(JSON.parse(savedSteps));
+                }
+                if (savedPhases) {
+                    completedPhases = new Set(JSON.parse(savedPhases));
+                }
+                
+                updateProgress();
+            } catch (e) {
+                console.log('No saved progress found, starting fresh');
+            }
+            
+            // Set initial view
+            setView('beginner');
+            
+            // Add event listeners for view toggle buttons
+            const beginnerBtn = document.getElementById('beginner-btn');
+            const detailedBtn = document.getElementById('detailed-btn');
+            
+            if (beginnerBtn) {
+                beginnerBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setView('beginner');
+                });
+            }
+            if (detailedBtn) {
+                detailedBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setView('detailed');
+                });
+            }
+            
+            // Add click handlers for framework cards
+            document.querySelectorAll('.framework-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const area = this.getAttribute('data-area');
+                    if (area) {
+                        // Create a fake event object for selectArea function
+                        window.event = e;
+                        selectArea(area);
+                    }
+                });
+            });
+            
+            console.log('Initialization complete');
+        });
+
+        // Save progress before page unload
+        window.addEventListener('beforeunload', function() {
+            try {
+                localStorage.setItem('roseMethodSteps', JSON.stringify([...completedSteps]));
+                localStorage.setItem('roseMethodPhases', JSON.stringify([...completedPhases]));
+            } catch (e) {
+                console.log('Could not save progress');
+            }
+        });
+    </script>
+</body>
+</html>
+    </script>(JSON.parse(savedSteps));
+                }
+                if (savedPhases) {
+                    completedPhases = new Set(JSON.parse(savedPhases));
+                }
+                
+                updateProgress();
+            } catch (e) {
+                console.log('No saved progress found, starting fresh');
+            }
+            
+            // Set initial view
+            setView('beginner');
+            
+            // Add event listeners for buttons that need them
+            const beginnerBtn = document.getElementById('beginner-btn');
+            const detailedBtn = document.getElementById('detailed-btn');
+            
+            if (beginnerBtn) {
+                beginnerBtn.addEventListener('click', () => setView('beginner'));
+            }
+            if (detailedBtn) {
+                detailedBtn.addEventListener('click', () => setView('detailed'));
+            }
+            
+            // Add click handlers for framework cards
+            document.querySelectorAll('.framework-card').forEach(card => {
+                card.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const heading = this.querySelector('h4');
+                    if (heading) {
+                        const area = heading.textContent.toLowerCase().split(' ')[0];
+                        // Create a fake event object for selectArea function
+                        window.event = event;
+                        selectArea(area);
+                    }
+                });
+            });
+            
+            console.log('Initialization complete');
+        });
+
+        // Save progress before page unload
+        window.addEventListener('beforeunload', function() {
+            try {
+                localStorage.setItem('roseMethodSteps', JSON.stringify([...completedSteps]));
+                localStorage.setItem('roseMethodPhases', JSON.stringify([...completedPhases]));
+            } catch (e) {
+                console.log('Could not save progress');
+            }
         });
     </script>
 </body>
