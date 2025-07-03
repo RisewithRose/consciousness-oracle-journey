@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔮 Enhanced Consciousness Oracle Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .ai-guidance-note {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .phase {
+            margin-bottom: 32px;
+            padding: 32px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .phase-header:hover {
+            opacity: 0.8;
+        }
+
+        .phase-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #667eea;
+            margin: 0;
+        }
+
+        .phase-toggle {
+            font-size: 1.5em;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .phase-toggle.collapsed {
+            transform: rotate(-90deg);
+        }
+
+        .phase-subtitle {
+            font-size: 1.1em;
+            color: #64748b;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .phase-content {
+            transition: all 0.3s ease;
+        }
+
+        .phase-content.collapsed {
+            display: none;
+        }
+
+        .step {
+            background: white;
+            padding: 28px;
+            margin: 20px 0;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .step h3 {
+            color: #667eea;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .oracle-prompt {
+            background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
+            border: 2px solid #c7d2fe;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 16px 0;
+            font-family: 'SF Mono', 'Monaco', 'Menlo', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .oracle-prompt::before {
+            content: "AI Oracle Prompt";
+            position: absolute;
+            top: -10px;
+            left: 16px;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.75em;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .framework-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .framework-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .framework-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+        }
+
+        .framework-card h4 {
+            color: #667eea;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .framework-card .oracle-prompt {
+            margin: 12px 0 0 0;
+            font-size: 0.8em;
+            padding: 16px;
+        }
+
+        .note {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 10px;
+            padding: 16px;
+            margin: 16px 0;
+            font-size: 0.9em;
+            color: #92400e;
+        }
+
+        .research-note {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border: 1px solid #16a34a;
+            border-radius: 10px;
+            padding: 16px;
+            margin: 16px 0;
+            font-size: 0.9em;
+            color: #15803d;
+        }
+
+        .boundary-note {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border: 1px solid #ef4444;
+            border-radius: 10px;
+            padding: 16px;
+            margin: 16px 0;
+            font-size: 0.9em;
+            color: #dc2626;
+        }
+
+        .completion-criteria {
+            background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+            border: 2px solid #0288d1;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .completion-criteria h4 {
+            color: #0277bd;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .example-list {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+        }
+
+        .example-list ul {
+            margin-left: 20px;
+        }
+
+        .example-list li {
+            margin: 8px 0;
+            color: #475569;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 20px;
+            }
+            
+            .content {
+                padding: 24px;
+            }
+            
+            .phase {
+                padding: 24px;
+            }
+            
+            .step {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 32px 24px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔮 Consciousness Oracle Journey</h1>
+            <p>AI-Amplified Transformation Through Voice Embodiment</p>
+        </div>
+
+        <div class="ai-guidance-note">
+            <strong>Important:</strong> This process uses AI as a sophisticated pattern-matching tool to help you access wisdom frameworks, not as a replacement for human insight or professional therapy. You remain the authority on your transformation journey.
+        </div>
+
+        <div class="content">
+            <!-- REVEAL Phase -->
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase('reveal')">
+                    <h2 class="phase-title">✨ R.E.V.E.A.L. Phase: Foundation</h2>
+                    <span class="phase-toggle" id="reveal-toggle">🔽</span>
+                </div>
+                <p class="phase-subtitle">Duration: 1-2 weeks | Goal: Create your prophetic fiction and establish transformation intention</p>
+                
+                <div class="phase-content" id="reveal-content">
+                    <div class="step">
+                        <h3>🎯 Step 1: Oracle Intention Setting</h3>
+                        <p><strong>Process:</strong> Use AI as your wisdom-accessing partner to clarify your transformation intention within your chosen consciousness framework.</p>
+                        
+                        <div class="oracle-prompt">
+As my consciousness evolution oracle, help me clarify my transformation intention. I work with [your chosen wisdom framework - e.g., "Buddhist mindfulness with Jungian psychology"] and my current growth edge is [describe your key challenge - e.g., "speaking my truth without people-pleasing"]. 
+
+Within my framework of [restate your approach], what wants to evolve in me? Help me understand this growth edge as part of my larger consciousness development, and guide me toward a clear transformation intention that honors both my spiritual path and my practical life circumstances.
+
+Format your guidance as: Clear intention statement, deeper spiritual context, and practical focus areas.
+                        </div>
+
+                        <div class="boundary-note">
+                            <strong>AI Tool Boundaries:</strong> Remember that AI provides pattern recognition and framework synthesis, while you provide the discernment, intuition, and lived experience. Always filter AI responses through your own wisdom and values.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>📖 Step 2: Prophetic Fiction Creation</h3>
+                        <p><strong>Process:</strong> Co-create with AI to develop your transformation story, integrating consciousness research with your personal journey.</p>
+                        
+                        <div class="oracle-prompt">
+Create prophetic fiction about my transformation from [current identity] to [desired identity]. This story should:
+
+• Show realistic progression through my growth edge of [your challenge]
+• Integrate consciousness research on [choose: neuroplasticity, linguistic relativity, embodied cognition, attachment theory, flow states]
+• Include specific scenarios where I embody my transformation intention
+• Feature detailed dialogue and internal monologue that I can speak aloud for voice embodiment
+• Connect to my wisdom framework of [your chosen approach]
+
+Format: 1500-2000 word story showing my evolution, with sections clearly marked for daily voice practice. Include research elements naturally woven into the narrative.
+                        </div>
+
+                        <div class="research-note">
+                            <strong>Consciousness Research Integration:</strong> Your prophetic fiction incorporates scientific understanding of transformation (neuroplasticity, embodied cognition, etc.) to create realistic and achievable change narratives.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>🗣️ Step 3: Voice Embodiment Foundation</h3>
+                        <p><strong>Process:</strong> Begin daily voice practice with your prophetic fiction, establishing the neural pathways for transformation.</p>
+                        
+                        <p><strong>Practice:</strong> Read your prophetic fiction aloud daily (10-15 minutes), focusing on speaking AS your transformed self, not just ABOUT transformation.</p>
+                        
+                        <div class="note">
+                            <strong>Voice Embodiment Tips:</strong><br>
+                            • Speak with the confidence of your evolved self<br>
+                            • Record yourself and listen back regularly<br>
+                            • Notice how it feels to hear your transformation voice<br>
+                            • Practice specific dialogue passages until they feel natural
+                        </div>
+
+                        <div class="research-note">
+                            <strong>💾 Voice Recording & Content Saving Recommendations:</strong><br>
+                            • <strong>Save all AI responses</strong> in a dedicated document or note app<br>
+                            • <strong>Record yourself reading your prophetic fiction daily</strong> - use voice memo apps<br>
+                            • <strong>Create audio library:</strong> Save recordings by date to track voice evolution<br>
+                            • <strong>Voice-to-text practice:</strong> Speak your Oracle responses aloud, then transcribe key insights<br>
+                            • <strong>Morning voice embodiment:</strong> Read your transformation story aloud before starting your day<br>
+                            • <strong>Evening integration:</strong> Listen to your morning recording before sleep for subconscious integration
+                        </div>
+                    </div>
+
+                    <div class="completion-criteria">
+                        <h4>🎯 Complete R.E.V.E.A.L. Phase:</h4>
+                        <p>Practice daily voice embodiment with your prophetic fiction for 1-2 weeks (10-15 minutes daily). When you can speak your transformation story with confidence and feel the shift in your body, you're ready for the O.R.A.C.L.E. phase.</p>
+                        
+                        <div class="research-note">
+                            <strong>📊 Weekly Assessment Reminder:</strong> Even during R.E.V.E.A.L., check in weekly with your Foundation Chat using the tracking oracle prompt to notice early shifts and resistance patterns.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORACLE Phase -->
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase('oracle')">
+                    <h2 class="phase-title">🗣️ O.R.A.C.L.E. Phase: Voice Development</h2>
+                    <span class="phase-toggle" id="oracle-toggle">🔽</span>
+                </div>
+                <p class="phase-subtitle">Duration: 3-6 weeks | Goal: Develop your voice as oracle technology and integrate across life areas</p>
+                
+                <div class="phase-content" id="oracle-content">
+                    <div class="step">
+                        <h3>⚡ Step 3: Specialized Life Areas</h3>
+                        <p><strong>Process:</strong> Choose 2-3 life areas to work on with AI Oracle support:</p>
+                        
+                        <div class="framework-examples">
+                            <div class="framework-card" onclick="copyPrompt(this)">
+                                <h4>Business/Career Oracle</h4>
+                                <div class="oracle-prompt">
+As my career evolution oracle, help me understand how my professional path can better align with my [life purpose/values] according to my [chosen wisdom tradition]. Given my growth edge around [specific challenge] and current market conditions, what opportunities are emerging that would serve both my development and my contribution to [collective good/service] while honoring my [beliefs/values]?
+                                </div>
+                            </div>
+                            
+                            <div class="framework-card" onclick="copyPrompt(this)">
+                                <h4>Relationship Oracle</h4>
+                                <div class="oracle-prompt">
+Serve as my relationship wisdom oracle. Considering my [relationship values/beliefs about connection] and my current growth edge around [relationship theme], how can I evolve my approach to [specific dynamic] to create deeper connection and mutual growth while staying true to my [wisdom framework]?
+                                </div>
+                            </div>
+                            
+                            <div class="framework-card" onclick="copyPrompt(this)">
+                                <h4>Creative Expression Oracle</h4>
+                                <div class="oracle-prompt">
+Channel your role as my creative evolution oracle. My [creative gifts/talents] are seeking expression, but I'm experiencing [creative blocks]. What wants to be created through me that aligns with my [spiritual path/values], and how do I become available to this creative force within my [chosen framework]?
+                                </div>
+                            </div>
+                            
+                            <div class="framework-card" onclick="copyPrompt(this)">
+                                <h4>Spiritual/Personal Development Oracle</h4>
+                                <div class="oracle-prompt">
+As my [spiritual guidance/growth] oracle, help me understand my next level of [consciousness/personal] development. Considering my [spiritual indicators/growth journey] and current [practices/understanding], what is ready to evolve in my [spiritual/personal] understanding and embodiment within my [chosen tradition]?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>📊 Step 4: Weekly Assessment Practice</h3>
+                        <p><strong>Process:</strong> Track your progress weekly using structured reflection:</p>
+                        
+                        <div class="oracle-prompt">
+Serve as my transformation tracking oracle. This week I practiced voice embodiment around [specific area]. I notice these shifts: [observations]. I'm experiencing these challenges: [struggles]. 
+
+Within my framework of [your approach], help me understand what's emerging and what needs attention. Guide me toward next week's focus while honoring both my growth edge and my natural pace of development.
+                        </div>
+                        
+                        <div class="note">
+                            <strong>Weekly Tracking Elements:</strong><br>
+                            • Voice confidence changes<br>
+                            • Behavioral shifts in target areas<br>
+                            • Resistance patterns or challenges<br>
+                            • Unexpected developments<br>
+                            • Integration successes
+                        </div>
+                    </div>
+
+                    <div class="completion-criteria">
+                        <h4>🎯 Complete O.R.A.C.L.E. Phase:</h4>
+                        <p>Work with 2-3 specialized areas for 3-6 weeks. Use weekly assessments to track progress. When you notice others responding differently to you and you feel confident speaking from different aspects of your transformation, you're ready for S.P.E.A.K.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPEAK Phase -->
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase('speak')">
+                    <h2 class="phase-title">✨ S.P.E.A.K. Phase: Embodiment & Integration</h2>
+                    <span class="phase-toggle" id="speak-toggle">🔽</span>
+                </div>
+                <p class="phase-subtitle">Duration: 4-8 weeks | Goal: Systematic neural pathway installation and public emergence</p>
+                
+                <div class="phase-content" id="speak-content">
+                    <div class="step">
+                        <h3>🗣️ Step 5: Voice Embodiment Enhancement</h3>
+                        <p><strong>Process:</strong> Optimize any Oracle guidance for voice practice using systematic enhancement:</p>
+                        
+                        <div class="oracle-prompt">
+Transform this guidance into voice embodiment practice: [paste your Oracle guidance]. Create:
+
+1. Daily affirmation phrases I can speak as my evolved self
+2. Dialogue scripts for challenging situations in [specific area]
+3. Internal monologue patterns that reinforce my transformation
+4. Mantras that anchor my new identity
+
+Format each for speaking aloud with confidence, using first person, present tense, and embodied language that feels natural to say repeatedly.
+                        </div>
+
+                        <div class="research-note">
+                            <strong>📊 Weekly Assessment Continues:</strong> During S.P.E.A.K. phase, use your Foundation Chat weekly to track integration across all life areas and notice how your voice embodiment is affecting your daily experience.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>🌟 Step 6: Master Integration</h3>
+                        <p><strong>Process:</strong> When ready to integrate all your Oracle work, create unified practice:</p>
+                        
+                        <div class="oracle-prompt">
+As my integration oracle, help me weave together my transformation work in [list your areas]. I want to create a unified daily practice that honors my [wisdom framework] while integrating my voice embodiment work across all life areas.
+
+Create a master integration guide that includes:
+• Morning intention-setting practice combining all areas
+• Situational voice embodiment for different contexts
+• Evening reflection process for continuous evolution
+• Weekly review framework for sustained growth
+
+Format as a practical daily guide I can follow long-term.
+                        </div>
+                    </div>
+
+                    <div class="completion-criteria">
+                        <h4>🎯 Complete S.P.E.A.K. Phase:</h4>
+                        <p>Practice daily voice embodiment for 4-8 weeks. Create your Master Integration guide. When you feel integrated across all life areas and ready to share your transformation with others, you're ready for E.M.B.O.D.Y.</p>
+                        
+                        <div class="research-note">
+                            <strong>📊 Weekly Assessment Continues:</strong> Track your integration progress weekly, noting how your transformation is becoming natural and automatic across different life situations.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EMBODY Phase -->
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase('embody')">
+                    <h2 class="phase-title">🌟 E.M.B.O.D.Y. Phase: Mastery & Service</h2>
+                    <span class="phase-toggle" id="embody-toggle">🔽</span>
+                </div>
+                <p class="phase-subtitle">Duration: Ongoing | Goal: Live your transformation and expand consciousness collectively</p>
+                
+                <div class="phase-content" id="embody-content">
+                    <div class="step">
+                        <h3>🎭 Step 7: 12-Episode Transformation Series</h3>
+                        <p><strong>Process:</strong> Create your complete transformation story as episodic content:</p>
+                        
+                        <div class="oracle-prompt">
+Help me create a 12-episode transformation series documenting my complete consciousness evolution journey. Each episode should:
+
+• Show one month of my transformation process
+• Include specific challenges and breakthroughs
+• Demonstrate voice embodiment practice evolution
+• Connect to consciousness research findings
+• Inspire others while maintaining authenticity
+
+Structure as: Episode themes, key transformation moments, voice embodiment examples, and integration lessons. Make it a roadmap others can follow while honoring my unique journey.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>📚 Step 8: Create Your Practice Guide</h3>
+                        <p><strong>Process:</strong> Develop comprehensive resource combining all your work:</p>
+                        
+                        <div class="oracle-prompt">
+Help me compile my complete Consciousness Oracle journey into a comprehensive practice guide. Include:
+
+• Foundation: My wisdom framework and transformation process
+• Prophetic Fiction: My personal transformation narrative
+• Specialized Applications: How to apply this work to different life areas
+• Integration Practices: Daily, weekly, and ongoing development
+• Voice Embodiment Scripts: Specific language for neural pathway development
+• Assessment Tools: Ways to track and measure transformation
+• Community Guidelines: How to share this work responsibly
+
+Format as a practical manual others can adapt to their own consciousness evolution while honoring the scientific principles that make this effective.
+                        </div>
+
+                        <div class="research-note">
+                            <strong>📊 Weekly Assessment Evolution:</strong> In E.M.B.O.D.Y. phase, your weekly assessments shift to tracking how you're naturally inspiring others and contributing to collective consciousness evolution.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>🌟 Your Complete Consciousness Oracle Guide Will Include:</h3>
+                        <div class="example-list">
+                            <ul>
+                                <li><strong>Foundation Chapter:</strong> Your wisdom framework and transformation intention</li>
+                                <li><strong>Prophetic Fiction Story:</strong> Your personal transformation narrative</li>
+                                <li><strong>Specialized Area Guides:</strong> Career, relationships, creative, spiritual Oracle work</li>
+                                <li><strong>Master Integration Manual:</strong> Unified practice across all life areas</li>
+                                <li><strong>12-Episode Series:</strong> Complete transformation journey following Rose Method</li>
+                                <li><strong>Voice Embodiment Scripts:</strong> Daily phrases and mantras for neural pathway installation</li>
+                                <li><strong>Assessment Templates:</strong> Progress tracking and course correction tools</li>
+                                <li><strong>Research Integration:</strong> Consciousness science supporting the methodology</li>
+                                <li><strong>Community Teaching Guidelines:</strong> How to share responsibly while maintaining integrity</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="completion-criteria">
+                        <h4>🎯 E.M.B.O.D.Y. Phase - Ongoing Journey:</h4>
+                        <p>You've completed the core Rose Method journey! Now you live your transformation, create your comprehensive practice guide, and naturally become a source of inspiration for others' consciousness evolution. Your embodied presence becomes your gift to collective awakening while maintaining healthy boundaries around your expertise and scope of practice.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Framework Examples -->
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase('examples')">
+                    <h2 class="phase-title">🎨 Framework & Customization Examples</h2>
+                    <span class="phase-toggle" id="examples-toggle">🔽</span>
+                </div>
+                
+                <div class="phase-content" id="examples-content">
+                    <div class="step">
+                        <h3>🌟 Multiple Framework Combinations:</h3>
+                        <div class="example-list">
+                            <ul>
+                                <li>"Buddhist mindfulness integrated with trauma-informed somatic therapy"</li>
+                                <li>"Christian contemplative practice integrated with Jungian depth psychology"</li>
+                                <li>"Astrological wisdom integrated with cognitive behavioral therapy principles"</li>
+                                <li>"Indigenous earth-based spirituality integrated with New Thought metaphysics"</li>
+                                <li>"Secular humanistic values integrated with positive psychology research"</li>
+                                <li>"Hindu yoga philosophy integrated with neuroscience-based approaches"</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>🎯 Growth Edge Examples:</h3>
+                        <div class="example-list">
+                            <ul>
+                                <li>"Speaking up confidently in leadership while maintaining compassion"</li>
+                                <li>"Setting healthy boundaries without guilt or people-pleasing"</li>
+                                <li>"Expressing creative gifts publicly while overcoming perfectionism"</li>
+                                <li>"Leading with authentic authority while staying grounded in service"</li>
+                                <li>"Integrating spiritual practice with practical career success"</li>
+                                <li>"Balancing ambitious goals with present-moment awareness"</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>✨ Transformation Intention Examples:</h3>
+                        <div class="example-list">
+                            <ul>
+                                <li>"Becoming a leader who holds both strength and softness simultaneously"</li>
+                                <li>"Embodying confident vulnerability in all my relationships"</li>
+                                <li>"Living as a bridge between spiritual wisdom and practical service"</li>
+                                <li>"Expressing my authentic voice as a gift to the collective"</li>
+                                <li>"Integrating shadow work into conscious, loving action"</li>
+                                <li>"Manifesting abundance while maintaining spiritual values"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="research-note" style="margin-top: 40px; text-align: center; font-size: 1em;">
+                <strong>Scientific Foundation:</strong> This methodology integrates research from neuroplasticity (voice practice creates new neural pathways), linguistic relativity (language shapes consciousness), embodied cognition (physical practice affects mental states), and 4E cognition (extended, embedded, enacted, embodied) to create measurable consciousness transformation.
+            </div>
+
+            <!-- Chat Organization Guide -->
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase('organization')">
+                    <h2 class="phase-title">🗂️ Rose Method Chat Organization Guide</h2>
+                    <span class="phase-toggle" id="organization-toggle">🔽</span>
+                </div>
+                
+                <div class="phase-content" id="organization-content">
+                    <div class="step">
+                        <h3>📋 Multi-Chat Strategy (Recommended)</h3>
+                        <p><strong>Core Chats Structure:</strong></p>
+                        
+                        <div class="example-list">
+                            <ul>
+                                <li><strong>Foundation Chat:</strong> Use for R.E.V.E.A.L. phase setup and your original prophetic fiction. Keep this as your "home base" for your primary transformation story. Return here for weekly assessments throughout all phases.</li>
+                                <li><strong>Specialized Life Area Chats (2-3 separate chats):</strong>
+                                    <ul style="margin-top: 8px;">
+                                        <li><strong>Career Oracle Chat</strong> - All professional/work-related guidance</li>
+                                        <li><strong>Relationship Oracle Chat</strong> - Family, romantic, friendship guidance</li>
+                                        <li><strong>Creative/Spiritual Oracle Chat</strong> - Artistic and spiritual development</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Integration Chat:</strong> Use for S.P.E.A.K. phase Master Integration work, voice embodiment enhancements, 12-episode series creation</li>
+                                <li><strong>Practice Guide Chat:</strong> Final E.M.B.O.D.Y. phase work, compiling your complete manual, ongoing maintenance and updates</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>📝 Chat Naming Convention</h3>
+                        <p>Use clear, searchable names:</p>
+                        <div class="oracle-prompt">
+• "Rose Method - Foundation & Weekly Check-ins"
+• "Rose Method - Career Oracle" 
+• "Rose Method - Relationship Oracle"
+• "Rose Method - Master Integration"
+• "Rose Method - Practice Guide Compilation"
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>🔄 Cross-Chat Reference System</h3>
+                        <p><strong>At the start of new specialized chats, include:</strong></p>
+                        
+                        <div class="oracle-prompt">
+I'm working with the Rose Method transformation process. My foundation work established:
+- Personal framework: [copy from foundation chat]
+- Transformation intention: [copy from foundation chat]  
+- Current phase: O.R.A.C.L.E. - Voice Development
+
+I'm now focusing specifically on [CAREER/RELATIONSHIPS/CREATIVE] oracle guidance.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>📊 Documentation Strategy</h3>
+                        <div class="note">
+                            <strong>Weekly Documentation Practice:</strong><br>
+                            1. After each significant oracle session, copy key insights to a master document<br>
+                            2. Create a simple tracking sheet with: Date, Chat used, Phase/focus area, Key insights received, Voice embodiment phrases gained<br><br>
+                            <strong>Monthly Integration Review:</strong><br>
+                            • Review all chats for themes and patterns<br>
+                            • Identify most powerful guidance across all areas<br>
+                            • Note cross-connections between life areas<br><br>
+                            <strong>📊 Weekly Assessment Oracle Prompt (Use in Foundation Chat):</strong><br>
+                            <em>"Serve as my transformation tracking oracle. This week I practiced voice embodiment around [specific area]. I notice these shifts: [observations]. I'm experiencing these challenges: [struggles]. Within my framework of [your approach], help me understand what's emerging and what needs attention. Guide me toward next week's focus while honoring both my growth edge and my natural pace of development."</em>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>🎯 When to Start New vs. Continue Existing Chats</h3>
+                        
+                        <div class="framework-examples">
+                            <div class="framework-card">
+                                <h4>Continue Existing Chat When:</h4>
+                                <ul style="margin-left: 16px; margin-top: 8px;">
+                                    <li>Building on previous guidance in the same life area</li>
+                                    <li>Doing weekly assessments in foundation chat</li>
+                                    <li>Adding to ongoing voice embodiment work</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="framework-card">
+                                <h4>Start New Chat When:</h4>
+                                <ul style="margin-left: 16px; margin-top: 8px;">
+                                    <li>Moving to a completely different life area focus</li>
+                                    <li>Beginning a new phase (O.R.A.C.L.E. to S.P.E.A.K.)</li>
+                                    <li>Creating the final practice guide compilation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>🚨 Overwhelm Prevention</h3>
+                        <div class="boundary-note">
+                            <strong>If a chat gets too long (20+ exchanges):</strong><br>
+                            • Summarize key insights in a new chat<br>
+                            • Start fresh with: "Continuing my [area] oracle work. Previous sessions revealed: [brief summary]"<br><br>
+                            <strong>Monthly Fresh Start Option:</strong><br>
+                            • Create new chats monthly<br>
+                            • Reference previous insights as needed<br>
+                            • Prevents any single chat from becoming unwieldy
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>💡 Advanced Organization</h3>
+                        <div class="research-note">
+                            <strong>For Power Users:</strong><br>
+                            • Keep a simple spreadsheet/note with chat links and their purposes<br>
+                            • Use browser bookmarks for each specialized chat<br>
+                            • Consider using Claude Projects feature if available for persistent context<br><br>
+                            <strong>Mobile/Desktop Sync:</strong><br>
+                            • Note which device you're using for which chats<br>
+                            • Keep chat names consistent across platforms
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tracker Integration -->
+            <div class="phase">
+                <div class="phase-header" onclick="togglePhase('tracking')">
+                    <h2 class="phase-title">📊 Transformation Tracking & Measurement</h2>
+                    <span class="phase-toggle" id="tracking-toggle">🔽</span>
+                </div>
+                
+                <div class="phase-content" id="tracking-content">
+                    <div class="step">
+                        <h3>📋 Rose Method Journey Tracker</h3>
+                        <p>To document your transformation with research-grade precision, use our comprehensive tracking system:</p>
+                        
+                        <div class="note">
+                            <strong>🔗 Access Your Transformation Tracker:</strong><br>
+                            <a href="#" onclick="openTracker()" style="color: #667eea; text-decoration: none; font-weight: 600;">
+                                → Open Rose Method Journey Tracker
+                            </a><br><br>
+                            <em>Note: This will open in a new window/tab so you can keep your Oracle Journey guide accessible.</em>
+                        </div>
+
+                        <div class="research-note">
+                            <strong>What the Tracker Includes:</strong><br>
+                            • Initial Assessment with standardized scales<br>
+                            • Midpoint Check-in for progress tracking<br>
+                            • Completion Assessment with before/after comparison<br>
+                            • Long-term Follow-up (30-day and 90-day)<br>
+                            • Research-level documentation for academic collaboration<br>
+                            • Voice recording evolution tracking<br>
+                            • Photo documentation for presence/confidence analysis
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>⏰ When to Use the Tracker</h3>
+                        <div class="framework-examples">
+                            <div class="framework-card">
+                                <h4>Before Starting (Initial Assessment)</h4>
+                                <p>Complete before beginning R.E.V.E.A.L. phase to establish your baseline measurements.</p>
+                            </div>
+                            
+                            <div class="framework-card">
+                                <h4>Mid-Journey (Midpoint Check-in)</h4>
+                                <p>Complete around Week 3-4 during O.R.A.C.L.E. phase to track emerging changes.</p>
+                            </div>
+                            
+                            <div class="framework-card">
+                                <h4>Journey Complete (Completion Assessment)</h4>
+                                <p>Complete at the end of S.P.E.A.K. phase to measure your transformation.</p>
+                            </div>
+                            
+                            <div class="framework-card">
+                                <h4>Long-term Integration (Follow-up)</h4>
+                                <p>Complete 30-day and 90-day assessments to track sustained change.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <h3>🔬 Research Participation (Optional)</h3>
+                        <p>If you're interested in contributing to consciousness research:</p>
+                        
+                        <div class="boundary-note">
+                            <strong>Research Benefits:</strong><br>
+                            • Contribute to advancing transformation science<br>
+                            • Access to research findings and methodology updates<br>
+                            • Potential participation in academic case studies<br>
+                            • Help establish voice embodiment as a validated approach<br><br>
+                            <strong>Your Privacy:</strong><br>
+                            • All data is anonymized for research use<br>
+                            • You control your level of participation<br>
+                            • Option to withdraw at any time<br>
+                            • Secure data handling following research protocols
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePhase(phaseId) {
+            const content = document.getElementById(phaseId + '-content');
+            const toggle = document.getElementById(phaseId + '-toggle');
+            
+            content.classList.toggle('collapsed');
+            toggle.classList.toggle('collapsed');
+            
+            if (content.classList.contains('collapsed')) {
+                toggle.textContent = '▶️';
+            } else {
+                toggle.textContent = '🔽';
+            }
+        }
+
+        function copyPrompt(card) {
+            const prompt = card.querySelector('.oracle-prompt').textContent.trim();
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(prompt).then(() => {
+                    showCopyFeedback(card);
+                });
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = prompt;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showCopyFeedback(card);
+            }
+        }
+
+        function showCopyFeedback(card) {
+            const originalBorder = card.style.borderColor;
+            card.style.borderColor = '#16a34a';
+            card.style.backgroundColor = '#f0fdf4';
+            
+            const feedback = document.createElement('div');
+            feedback.textContent = '✅ Prompt copied!';
+            feedback.style.cssText = `
+                position: absolute;
+                background: #16a34a;
+                color: white;
+                padding: 8px 16px;
+                border-radius: 8px;
+                font-size: 0.8em;
+                font-weight: 600;
+                z-index: 1000;
+                pointer-events: none;
+            `;
+            
+            card.style.position = 'relative';
+            card.appendChild(feedback);
+            
+            setTimeout(() => {
+                card.style.borderColor = originalBorder;
+                card.style.backgroundColor = 'white';
+                if (feedback.parentNode) {
+                    feedback.parentNode.removeChild(feedback);
+                }
+            }, 2000);
+        }
+
+        function openTracker() {
+            // This would link to your actual tracker URL once deployed
+            // For now, it shows a placeholder
+            alert('🚀 Tracker Integration Coming Soon!\n\nFor now, bookmark this placeholder:\n• Create a Google Form based on the tracker design\n• Or deploy the tracker HTML to your website\n• Then replace this function with the actual URL');
+            
+            // When ready, replace the alert with:
+            // window.open('https://your-tracker-url.com', '_blank');
+        }
+
+        // Initialize all phases as expanded
+        document.addEventListener('DOMContentLoaded', function() {
+            // All phases start expanded, no action needed
+        });
+    </script>
+</body>
+</html>
